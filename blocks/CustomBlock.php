@@ -42,7 +42,7 @@ class CustomBlock implements BlockInterface
             'need_reload' => false, // reload iframe on save
             'templates' => [ // templates for block
                 'default' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block.tpl',
-                'img_right' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
+                'img_left' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
                 'full' => 'module:' . $this->module->name . '/views/templates/blocks/img_full.tpl',
             ],
             'config' => [
@@ -57,7 +57,7 @@ class CustomBlock implements BlockInterface
                         'type' => 'fileupload',
                         'force_default_value' => true,
                         'label' => $this->module->l('Image first banner'),
-                        'path' => '$/modules/'.$this->module->name.'/views/images/banners/',
+                        'path' => '$/modules/'.$this->module->name.'/views/images/',
                         'default' => [
                             'url' => 'https://placehold.co/600x400',
                         ],
@@ -67,6 +67,43 @@ class CustomBlock implements BlockInterface
                         'label' => $this->module->l('Use image'),
                         'default' => true,
                         'force_default_value' => true,
+                    ],
+                    'title_field' => [
+                        'type' => 'title',
+                        'label' => $this->module->l('Title'),
+                        'force_default_value' => true,
+                        'default' => [
+                            'tag' => 'h2',
+                            'classes' => [],
+                            'value' => "EDIT THIS TITLE !",
+                            'focus' => false,
+                            'bold' => false,
+                            'italic' => false,
+                            'underline' => false,
+                            'size' => 18,
+                        ],
+                    ],
+                ],
+            ],
+
+            'repeater' => [
+                'name' => $this->module->l('Repeated Element'),
+                'nameFrom' => 'text_field',
+                'groups' => [
+                    'image_field' => [
+                        'type' => 'fileupload',
+                        'force_default_value' => true,
+                        'label' => $this->module->l('Upload Image'),
+                        'path' => '$/modules/'.$this->module->name.'/views/images/',
+                        'default' => [
+                            'url' => 'https://placehold.co/600x400',
+                        ],
+                    ],
+                    'text_field' => [
+                        'type' => 'text',
+                        'force_default_value' => true,
+                        'label' => $this->module->l('Enter Text'),
+                        'default' => 'Default Text',
                     ],
                 ],
             ],

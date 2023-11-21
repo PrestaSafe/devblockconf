@@ -2,13 +2,13 @@ Hello from custom block !
 
 Use <code>{literal} {$block} Variable {/literal}</code>
 
-<div class="row devblockconf">
+<div class="row devblockconf text-center">
   <div class="col-md-12">
-    {$block.html nofilter}
+    {$block.settings.html nofilter}
   </div>
   <div class="col-md-12">
-    {if $block.use_image}
-      <img src="{$block.image_1.url}" alt="Image">
+    {if $block.settings.use_image}
+      <img width="100px" src="{$block.settings.image_1.url}" alt="Image">
     {/if}
   </div>
 </div>

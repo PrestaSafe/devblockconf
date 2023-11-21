@@ -47,12 +47,16 @@ class DevBlockConf extends Module
 
     public function hookdisplayHeader()
     {
-        $shop = $this->context->shop;
-        if(file_exists(_PS_THEME_DIR_ . 'assets/css/theme-'.$shop->id.'.css'))
-        {
-            $this->context->controller->unregisterStylesheet('theme-main');
-            $this->context->controller->registerStylesheet('theme-main', 'assets/css/theme-'.$shop->id.'.css', ['media' => 'all', 'priority' => 150]);
-        }
+
+        $this->context->controller->registerStylesheet(
+            'module-devblockconf-style',
+            'modules/'.$this->name.'/views/css/devblockconf.css',
+            [
+                'media' => 'all',
+                'priority' => 200,
+            ]
+        );
+
     }
 
    
@@ -81,16 +85,24 @@ class DevBlockConf extends Module
                 'type' => 'fileupload', // type of field
                 'label' => $this->l('Logo'), // label to display
                 'tab' => 'logo',
-                'path' => '$/modules/cartzillablocks/views/images/logo/', // path to upload
+                'path' => '$/modules/'.$this->name.'/views/images/logo/', // path to upload
                 'default' => [
-                    'url' => $logo,
+                    'url' => '',
                 ],
             ],
-            'color' => [
+            'bg_color' => [
                 'type' => 'color',
                 'label' => $this->l('Background color of blocks'),
                 'force_default_value' => true,
+                'tab' => 'my tab',
                 'default' => '#f5f5f5',
+            ],
+            'txt_color' => [
+                'type' => 'color',
+                'label' => $this->l('Text color of blocks'),
+                'force_default_value' => true,
+                'tab' => 'my tab',
+                'default' => '#000000',
             ],
         ];
     }
@@ -106,27 +118,27 @@ class DevBlockConf extends Module
     }
 
     
-    
-
-
- 
 
     public function hookActionQueueSassCompile($params)
     {
-        $id_shop = (int)$params['id_shop'];
-        $profile = $params['profile'];
+        // $id_shop = (int)$params['id_shop'];
+        // $profile = $params['profile'];
 
         $vars = [
             'entries' => [
-                '$/modules/' . $this->name . '/views/css/custom.scss',
+                '$/modules/' . $this->name . '/views/css/vars.scss',
             ],
-            'out' => '$/themes/'.$profile->theme_name.'/assets/css/custom.css',
+            'out' => '$/modules/' . $this->name . '/views/css/devblockconf.scss',
+        ];
+
+        $theme = [
+            'entries' => [
+                '$/modules/' . $this->name . '/views/css/devblockconf.scss',
+            ],
+            'out' => '$/modules/' . $this->name . '/views/css/devblockconf.css',
         ];
    
-       
-       
-
-        return [$vars];
+        return [$vars, $theme];
     }
 
 
