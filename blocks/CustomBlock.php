@@ -37,13 +37,15 @@ class CustomBlock implements BlockInterface
             'description' => $this->module->l('Display custom text anywhere'), 
             'code' => 'demo_block', // unique code 
             'tab' => 'general', // for future use
-            'icon' => 'DocumentTextIcon', // heroicons 
+            'icon' => 'DocumentTextIcon', // heroicons v2
+            // 'icon_path' => 'https://yoursite.com/img/icon.png', // custom icon
             'insert_default_values' => true, // insert default values on new block
             'need_reload' => false, // reload iframe on save
             'templates' => [ // templates for block
                 'default' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block.tpl',
                 'img_left' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
                 'full' => 'module:' . $this->module->name . '/views/templates/blocks/img_full.tpl',
+                'extra' => 'module:' . $this->module->name . '/views/templates/blocks/extra.tpl',
             ],
             'config' => [
                 'fields' => [
@@ -68,6 +70,16 @@ class CustomBlock implements BlockInterface
                         'default' => true,
                         'force_default_value' => true,
                     ],
+                    // 'alignment' => [
+                    //     'type' => 'select',
+                    //     'label' => $this->module->l('Choose alignment'),
+                    //     'default' => 'left',
+                    //     'choices' => [
+                    //         'left' => 'left',
+                    //         'center' => 'center',
+                    //         'right' => 'right',
+                    //     ],
+                    // ],
                     'title_field' => [
                         'type' => 'title',
                         'label' => $this->module->l('Title'),

@@ -3,6 +3,8 @@
 
 Use <code>{literal} {$block} Variable {/literal}</code>
 
+  Extra value: {$block.extra.random_value}
+
 <div class="row devblockconf text-sm-center">
   <div class="col-md-12 ">
     {$block.settings.html nofilter}

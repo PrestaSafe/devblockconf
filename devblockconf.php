@@ -34,36 +34,18 @@ class DevBlockConf extends Module
         $this->description = $this->l('Demo block for prettyblocks');
         $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
     }
-    
-
-    public function install()
-    {
-        parent::install();
-        $this->registerHook($this->hooks);
-
-        return true;
-    }
-
-
-    public function hookdisplayHeader()
+  
+    /**
+     * Register blocks
+     */
+    public function hookActionRegisterBlock()
     {
 
-        $this->context->controller->registerStylesheet(
-            'module-devblockconf-style',
-            'modules/'.$this->name.'/views/css/devblockconf.css',
+        return HelperBuilder::renderBlocks(
             [
-                'media' => 'all',
-                'priority' => 200,
+                new CustomBlock($this),
             ]
         );
-
-    }
-
-   
-
-    public function uninstall()
-    {
-        return parent::uninstall() && $this->unregisterHook($this->hooks);
     }
 
     /**
@@ -72,10 +54,14 @@ class DevBlockConf extends Module
     public function hookbeforeRenderingDemoBlock($params)
     {
         $settings = $params['block']['settings'];
-
-        return ['radom_value' => false];
+        $random = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10/strlen($x)) )),1,10);
+        // $block.extra.random_value
+        return ['random_value' => $random];
     }
 
+    /**
+     * Add settings to theme
+     */
     public function hookActionRegisterThemeSettings()
     {
         // $logo = HelperBuilder::pathFormattedToUrl('$/modules/'.$this->name.'/views/images/logo/logo-dark.png');
@@ -107,18 +93,11 @@ class DevBlockConf extends Module
         ];
     }
 
-    public function hookActionRegisterBlock()
-    {
-
-        return HelperBuilder::renderBlocks(
-            [
-                new CustomBlock($this),
-            ]
-        );
-    }
-
-    
-
+    /**
+     * Add settings to theme
+     * @param array $params
+     * @return array
+     */
     public function hookActionQueueSassCompile($params)
     {
         // $id_shop = (int)$params['id_shop'];
@@ -141,6 +120,39 @@ class DevBlockConf extends Module
         return [$vars, $theme];
     }
 
+    /**
+     * Add css file
+     */
+    public function hookdisplayHeader()
+    {
 
+        $this->context->controller->registerStylesheet(
+            'module-devblockconf-style',
+            'modules/'.$this->name.'/views/css/devblockconf.css',
+            [
+                'media' => 'all',
+                'priority' => 200,
+            ]
+        );
+
+    }
+
+    /**
+     * Uninstall module
+     */
+    public function uninstall()
+    {
+        return parent::uninstall() && $this->unregisterHook($this->hooks);
+    }
+    /**
+     * Install module
+     */
+    public function install()
+    {
+        parent::install();
+        $this->registerHook($this->hooks);
+
+        return true;
+    }
    
 }
