@@ -70,6 +70,15 @@ class CustomBlock implements BlockInterface
                         'default' => true,
                         'force_default_value' => true,
                     ],
+
+                    'category' => [
+                        'type' => 'selector',
+                        'label' => $this->module->l('Category'),
+                        'collection' => 'Category',
+                        'force_default_value' => true,
+                        'default' => \HelperBuilder::getRandomCategory($this->context->language->id, $this->context->shop->id),
+                        'selector' => '{id} - {name}',
+                    ],
                     // 'alignment' => [
                     //     'type' => 'select',
                     //     'label' => $this->module->l('Choose alignment'),

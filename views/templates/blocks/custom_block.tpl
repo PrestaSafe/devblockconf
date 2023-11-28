@@ -39,6 +39,8 @@ This block use CSS COMPILED
   <hr>
 
   Repeated elements: 
-  <code>{literal} {$block.states} {/literal} = {dump($block.states)} </code>
-
+  {* <code>{literal} {$block.states} {/literal} = {dump($block.states)} </code> *}
+    {foreach from=$block.states item=state}
+      {$state.text_field} <br>
+    {/foreach}
 </div>
