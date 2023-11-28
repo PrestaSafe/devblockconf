@@ -1,4 +1,5 @@
 vendor/
 **node_modules**
 views/images/*
+!views/images/
 **.DS_Store**

@@ -1,6 +1,15 @@
 // $bg-devblockconf:  $SETTINGS_bg_color !default;
-
+$parralax_height: $SETTINGS_parralax_height !default;
+.parallax-section {
+    /* Ajustez ces styles selon vos besoins */
+    height: $parralax_height;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 .devblockconf {
     background-color: $SETTINGS_bg_color;
     color: $SETTINGS_txt_color;
 }
+

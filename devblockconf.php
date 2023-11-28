@@ -87,8 +87,15 @@ class DevBlockConf extends Module
                 'type' => 'color',
                 'label' => $this->l('Text color of blocks'),
                 'force_default_value' => true,
-                'tab' => 'my tab',
+                'tab' => 'custom',
                 'default' => '#000000',
+            ],
+            'parralax_height' => [
+                'type' => 'text',
+                'label' => $this->l('Height of parralax'),
+                'force_default_value' => true,
+                'tab' => 'custom',
+                'default' => '500px',
             ],
         ];
     }

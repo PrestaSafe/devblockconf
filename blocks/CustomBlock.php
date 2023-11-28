@@ -32,6 +32,7 @@ class CustomBlock implements BlockInterface
 
     public function registerBlocks(): array
     {
+        $context = \Context::getContext();
         return [
             'name' => $this->module->l('Custom Text'),
             'description' => $this->module->l('Display custom text anywhere'), 
@@ -49,6 +50,20 @@ class CustomBlock implements BlockInterface
             ],
             'config' => [
                 'fields' => [
+                    'category' => [
+                        'type' => 'selector',
+                        'label' => $this->module->l('Category'),
+                        'collection' => 'Category',
+                        'selector' => '{id} - {name}',
+                        'force_default_value' => true,
+                        'default' => \HelperBuilder::getRandomCategory($context->language->id, $context->shop->id),
+                    ],
+                    'text' => [
+                        'type' => 'text',
+                        'force_default_value' => true,
+                        'label' => $this->module->l('Add your text'),
+                        'default' => 'Hello everyone',
+                    ],
                     'html' => [
                         'type' => 'editor',
                         'force_default_value' => true,
@@ -71,24 +86,6 @@ class CustomBlock implements BlockInterface
                         'force_default_value' => true,
                     ],
 
-                    'category' => [
-                        'type' => 'selector',
-                        'label' => $this->module->l('Category'),
-                        'collection' => 'Category',
-                        'force_default_value' => true,
-                        'default' => \HelperBuilder::getRandomCategory($this->context->language->id, $this->context->shop->id),
-                        'selector' => '{id} - {name}',
-                    ],
-                    // 'alignment' => [
-                    //     'type' => 'select',
-                    //     'label' => $this->module->l('Choose alignment'),
-                    //     'default' => 'left',
-                    //     'choices' => [
-                    //         'left' => 'left',
-                    //         'center' => 'center',
-                    //         'right' => 'right',
-                    //     ],
-                    // ],
                     'title_field' => [
                         'type' => 'title',
                         'label' => $this->module->l('Title'),
@@ -104,6 +101,16 @@ class CustomBlock implements BlockInterface
                             'size' => 18,
                         ],
                     ],
+                       // 'alignment' => [
+                    //     'type' => 'select',
+                    //     'label' => $this->module->l('Choose alignment'),
+                    //     'default' => 'left',
+                    //     'choices' => [
+                    //         'left' => 'left',
+                    //         'center' => 'center',
+                    //         'right' => 'right',
+                    //     ],
+                    // ],
                 ],
             ],
 
