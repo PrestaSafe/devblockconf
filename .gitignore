@@ -1,3 +1,4 @@
 vendor/
+views/images/*
 **node_modules**
 **.DS_Store**
