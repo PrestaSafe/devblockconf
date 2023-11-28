@@ -1,3 +1,9 @@
 vendor/
+views/images/*.webp
+views/images/*.jpg
+views/images/*.png
+views/images/*.svg
+views/images/*.jpeg
+views/images/*.gif
 **node_modules**
 **.DS_Store**
