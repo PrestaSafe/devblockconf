@@ -1,6 +1,4 @@
 <div {if $block.settings.default.container} class="container" {/if}>
-
-  {dump($block)}
 {* 
   Champs text: {$block.settings.text}
   Categorie : {dump($block.settings.category)} *}
