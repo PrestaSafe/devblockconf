@@ -19,6 +19,7 @@ class DevBlockConf extends Module
         'ActionRegisterBlock',
         'ActionQueueSassCompile',
         'beforeRenderingDemoBlock',
+        'ActionExtendBlockTemplateDemoBlock',
         'displayHeader',
     ];
     public function __construct()
@@ -65,7 +66,7 @@ class DevBlockConf extends Module
     public function hookActionRegisterThemeSettings()
     {
         // $logo = HelperBuilder::pathFormattedToUrl('$/modules/'.$this->name.'/views/images/logo/logo-dark.png');
-
+        // {TplSettings::getSettings('bg_color')}
         return [
             'logo' => [
                 'type' => 'fileupload', // type of field
@@ -80,7 +81,7 @@ class DevBlockConf extends Module
                 'type' => 'color',
                 'label' => $this->l('Background color of blocks'),
                 'force_default_value' => true,
-                'tab' => 'my tab',
+                'tab' => 'toto',
                 'default' => '#f5f5f5',
             ],
             'txt_color' => [
@@ -142,6 +143,17 @@ class DevBlockConf extends Module
             ]
         );
 
+    }
+    /**
+     * Add template from hook
+     * @param array $params
+     */
+    public function hookActionExtendBlockTemplateDemoBlock($params)
+    {
+        return [
+            'from_hook' => 'module:'.$this->name.'/views/templates/blocks/template1.tpl',
+            'override2' => 'module:'.$this->name.'/views/templates/blocks/template2.tpl',
+        ];
     }
 
     /**

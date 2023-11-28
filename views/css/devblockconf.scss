@@ -1,5 +1,5 @@
-// $bg-devblockconf:  #f5f5f5 !default;
-$parralax_height: 800px !default;
+// $bg-devblockconf:  #5d0d0d !default;
+$parralax_height: 400px !default;
 .parallax-section {
     /* Ajustez ces styles selon vos besoins */
     height: $parralax_height;
@@ -9,7 +9,10 @@ $parralax_height: 800px !default;
     background-size: cover;
   }
 .devblockconf {
-    background-color: #f5f5f5;
-    color: #000000;
+    background-color: #5d0d0d;
+    color: #ffffff;
+    > * {
+        color: #ffffff;
+    }
 }
 

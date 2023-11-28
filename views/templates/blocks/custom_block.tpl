@@ -9,9 +9,9 @@
 </div>
 
 
-{* <div class="devblockconf p-3">
+<div class="devblockconf p-3">
 This block use CSS COMPILED
-</div> *}
+</div>
 
 
 
@@ -20,6 +20,7 @@ This block use CSS COMPILED
     <!-- Contenu de la section parallaxe ici -->
   </div>
 
+  Champs text: {$block.settings.text}
 {* 
   <code>
     Value of bg color: <code>{literal} {$block.settings.default.bg_color} {/literal} = {dump($block.settings.default.bg_color)} </code> 
@@ -29,8 +30,11 @@ This block use CSS COMPILED
    *}
 
 
-  {* Repeated elements: 
+   <br>
+  Repeated elements: 
+  <ul>
   {foreach from=$block.states item=state}
-    {$state.text_field} <br>
-  {/foreach} *}
+    <li>{$state.text_field} </li><br>
+  {/foreach}
+  </ul>
 </div>
