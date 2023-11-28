@@ -152,7 +152,6 @@ class DevBlockConf extends Module
     {
         return [
             'from_hook' => 'module:'.$this->name.'/views/templates/blocks/template1.tpl',
-            'override2' => 'module:'.$this->name.'/views/templates/blocks/template2.tpl',
         ];
     }
 
