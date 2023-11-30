@@ -34,7 +34,7 @@ class CustomBlock implements BlockInterface
     {
         $context = \Context::getContext();
         return [
-            'name' => $this->module->l('Custom Text'),
+            'name' => $this->module->l('Custom Parralax'),
             'description' => $this->module->l('Display custom text anywhere'), 
             'code' => 'demo_block', // unique code 
             'tab' => 'general', // for future use
