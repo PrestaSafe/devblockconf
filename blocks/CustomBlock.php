@@ -101,16 +101,52 @@ class CustomBlock implements BlockInterface
                             'size' => 18,
                         ],
                     ],
-                       // 'alignment' => [
-                    //     'type' => 'select',
-                    //     'label' => $this->module->l('Choose alignment'),
-                    //     'default' => 'left',
+                    'alignment' => [
+                        'type' => 'select',
+                        'label' => $this->module->l('Choose alignment'),
+                        'default' => 'left',
+                        'choices' => [
+                            'left' => 'left',
+                            'center' => 'center',
+                            'right' => 'right',
+                        ],
+                    ],
+                    // 'multiselect' => [
+                    //     'type' => 'multiselect',
+                    //     'label' => $this->l('Multiple select'),
+                    //     'default' => ["1","2"],
+                    //     'force_default_value' => true, // force default value
                     //     'choices' => [
-                    //         'left' => 'left',
-                    //         'center' => 'center',
-                    //         'right' => 'right',
+                    //         '1' => 'Select 1',
+                    //         '2' => 'Select 2',
+                    //         '3' => 'Select 3',
+                    //         '4' => 'Select 4',
+                    //         '5' => 'Select 5',
                     //     ],
                     // ],
+                    // 'radio_group' => [
+                    //     'type' => 'radio_group', // type of field
+                    //     'label' => 'Choose a value',  // label to display
+                    //     'force_default_value' => true, // force default value
+                    //     'default' => '3', // default value (String)
+                    //     'choices' => [
+                    //         '1' => 'Radio 1',
+                    //         '2' => 'Radio 2',
+                    //         '3' => 'Radio 3',
+                    //         '4' => "Radio '4",
+                    //     ]
+                    // ],
+                    // multiselect 
+                    'alignment' => [
+                        'type' => 'select',
+                        'label' => $this->module->l('Choose alignment'),
+                        'default' => 'left',
+                        'choices' => [
+                            'left' => 'left',
+                            'center' => 'center',
+                            'right' => 'right',
+                        ],
+                    ],
                 ],
             ],
 

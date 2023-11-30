@@ -1,12 +1,15 @@
 .parallax-section {
   /* Ajustez ces styles selon vos besoins */
-  height: 400px;
+  height: 500px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .devblockconf {
-  background-color: #000000;
+  background-color: #0c0c0c;
   color: #ffffff;
+}
+.devblockconf > * {
+  color: #ffffff !important;
 }

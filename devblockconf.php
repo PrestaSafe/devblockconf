@@ -72,7 +72,7 @@ class DevBlockConf extends Module
                 'type' => 'color',
                 'label' => $this->l('Background color of blocks'),
                 'force_default_value' => true,
-                'tab' => 'custom_tabs',
+                'tab' => 'custom',
                 'default' => '#f5f5f5',
             ],
             'txt_color' => [
@@ -93,7 +93,16 @@ class DevBlockConf extends Module
     }
 
 
-    
+    /**
+     * Extends block classic featured products
+     */
+    public function hookbeforeRenderingDemoBlock($params)
+    {
+        // $settings = $params['block']['settings'];
+        $random = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10/strlen($x)) )),1,10);
+        // $block.extra.random_value
+        return ['random_value' => $random];
+    }
 
     /**
      * Add settings to theme
@@ -122,16 +131,7 @@ class DevBlockConf extends Module
         return [$vars, $theme];
     }
 
-     /**
-     * Extends block classic featured products
-     */
-    public function hookbeforeRenderingDemoBlock($params)
-    {
-        $settings = $params['block']['settings'];
-        $random = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10/strlen($x)) )),1,10);
-        // $block.extra.random_value
-        return ['random_value' => $random];
-    }
+    
 
     /**
      * Add css file
