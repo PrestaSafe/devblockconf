@@ -13,7 +13,6 @@ use PrestaShop\PrestaShop\Core\Product\Search\SortOrder;
 
 class DevBlockConf extends Module
 {
-    protected $templateFile;
     public $hooks = [
         'ActionRegisterBlock',
         'ActionRegisterThemeSettings',

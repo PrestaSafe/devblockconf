@@ -43,10 +43,10 @@ class CustomBlock implements BlockInterface
             'insert_default_values' => true, // insert default values on new block
             'need_reload' => false, // reload iframe on save
             'templates' => [ // templates for block
-                'default' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block.tpl',
-                'img_left' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
-                'full' => 'module:' . $this->module->name . '/views/templates/blocks/img_full.tpl',
-                'extra' => 'module:' . $this->module->name . '/views/templates/blocks/extra.tpl',
+                'default' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block.tpl', // default template required
+                // 'img_left' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
+                // 'full' => 'module:' . $this->module->name . '/views/templates/blocks/img_full.tpl',
+                // 'extra' => 'module:' . $this->module->name . '/views/templates/blocks/extra.tpl',
             ],
             'config' => [
                 'fields' => [
