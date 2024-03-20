@@ -44,6 +44,7 @@ class DevBlockConf extends Module
         return HelperBuilder::renderBlocks(
             [
                 new CustomBlock($this),
+                new ImageBlock($this),
             ]
         );
     }
