@@ -36,7 +36,7 @@ class ImageBlock implements BlockInterface
         return [
             'name' => $this->module->l('Custom Image Blocks'),
             'description' => $this->module->l('Display image anywhere'), 
-            'code' => 'demo_block', // unique code 
+            'code' => 'image_block', // unique code 
             'tab' => 'general', // for future use
             'icon' => 'PhotoIcon', // heroicons v2
             // 'icon_path' => 'https://yoursite.com/img/icon.png', // custom icon

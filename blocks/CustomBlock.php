@@ -36,7 +36,7 @@ class CustomBlock implements BlockInterface
         return [
             'name' => $this->module->l('Custom Parralax'),
             'description' => $this->module->l('Display custom text anywhere'), 
-            'code' => 'image_block', // unique code 
+            'code' => 'demo_block', // unique code 
             'tab' => 'general', // for future use
             'icon' => 'DocumentTextIcon', // heroicons v2
             // 'icon_path' => 'https://yoursite.com/img/icon.png', // custom icon
@@ -44,9 +44,9 @@ class CustomBlock implements BlockInterface
             'need_reload' => false, // reload iframe on save
             'templates' => [ // templates for block
                 'default' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block.tpl', // default template required
-                // 'img_left' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
-                // 'full' => 'module:' . $this->module->name . '/views/templates/blocks/img_full.tpl',
-                // 'extra' => 'module:' . $this->module->name . '/views/templates/blocks/extra.tpl',
+                'img_left' => 'module:' . $this->module->name . '/views/templates/blocks/custom_block_img_left.tpl',
+                'full' => 'module:' . $this->module->name . '/views/templates/blocks/img_full.tpl',
+                'extra' => 'module:' . $this->module->name . '/views/templates/blocks/extra.tpl',
             ],
             'config' => [
                 'fields' => [
